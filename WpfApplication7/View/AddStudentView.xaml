@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfApplication7.View.AddStudentView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication7.View"
+        mc:Ignorable="d"
+        Title="AddStudentView" Height="300" Width="300"
+        DataContext="{Binding AddStudent, Source={StaticResource Locator}}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="学号" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+        <Label Grid.Row="1" Grid.Column="0" Content="姓名" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+        <Label Grid.Row="2" Grid.Column="0" Content="班级" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+        <Label Grid.Row="3" Grid.Column="0" Content="年龄" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+        <Label Grid.Row="4" Grid.Column="0" Content="性别" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+        <TextBox Name="txtID" Grid.Row="0" Grid.Column="1" Text="{Binding Stu_id,Mode=TwoWay,NotifyOnTargetUpdated=True}"></TextBox>
+        <TextBox Name="txtName" Grid.Row="1" Grid.Column="1" Text="{Binding Stu_name,Mode=TwoWay,NotifyOnTargetUpdated=True}"></TextBox>
+        <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding comboList,Mode=TwoWay,NotifyOnTargetUpdated=True}" Text="{Binding Stu_class}"  DisplayMemberPath="Stu_class" SelectedValuePath="Class_id"></ComboBox>
+        <TextBox Name="txtAge" Grid.Row="3" Grid.Column="1" Text="{Binding Stu_age,Mode=TwoWay,NotifyOnTargetUpdated=True}"></TextBox>
+        <TextBox Name="txtGender" Grid.Row="4" Grid.Column="1" Text="{Binding Stu_gender,Mode=TwoWay,NotifyOnTargetUpdated=True}"></TextBox>
+        <Rectangle Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Fill="Black" Height="1" VerticalAlignment="Bottom"></Rectangle>
+        <Button Content="保存" Width="80" Height="30" Grid.Row="5" Grid.Column="1" Command="{Binding SaveCommand}"></Button>
+    </Grid>
+</Window>
